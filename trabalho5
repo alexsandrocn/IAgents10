@@ -1,0 +1,206 @@
+Claro! Aqui está todo o conteúdo com as técnicas de prompting e exemplos práticos:
+
+
+---
+
+🔹 Supervised Fine-Tuning (Ajuste Fino Supervisionado)
+
+Definição: Processo em que um LLM é treinado com pares de (prompt, resposta) para aprender comportamentos desejados.
+✔️ Requer um conjunto de dados anotado com entradas e saídas esperadas.
+✔️ Utilizado quando se quer personalizar o comportamento do modelo.
+
+Exemplo de Prompt e Resposta:
+
+### Instrução:
+Você é um assistente útil e educado. Responda de forma clara e empática.
+
+### Pergunta:
+Como posso redefinir minha senha em sua plataforma?
+
+### Resposta:
+Claro! Para redefinir sua senha, siga estes passos:
+1. Acesse a página de login da nossa plataforma.
+2. Clique em "Esqueci minha senha".
+3. Informe seu e-mail cadastrado e clique em "Enviar".
+4. Verifique sua caixa de entrada e siga o link para criar uma nova senha.
+Se precisar de ajuda, estamos à disposição!
+
+Formato comum (em JSONL):
+
+{
+  "prompt": "### Instrução:\\nVocê é um assistente útil e educado. Responda de forma clara e empática.\\n\\n### Pergunta:\\nComo posso redefinir minha senha em sua plataforma?\\n\\n### Resposta:\\n",
+  "completion": "Claro! Para redefinir sua senha, siga estes passos:\\n1. Acesse a página de login da nossa plataforma..."
+}
+
+
+---
+
+🔹 Prompting e In-Context Learning
+
+In-Context Learning (ICL)
+
+O modelo aprende durante a inferência, sem ajuste de pesos. Aprende só com os exemplos fornecidos no próprio prompt.
+
+
+---
+
+• Zero-shot
+
+Definição: O modelo recebe apenas a instrução, sem nenhum exemplo.
+Exemplo de Prompt:
+
+Classifique o sentimento da frase: "O filme foi incrível e me fez chorar de emoção."
+Resposta:
+
+
+---
+
+• One-shot
+
+Definição: O modelo recebe um exemplo no prompt.
+Exemplo:
+
+Exemplo:
+Frase: "Esse produto é horrível, quero meu dinheiro de volta."
+Sentimento: Negativo
+
+Agora classifique:
+Frase: "O atendimento foi ótimo, adorei a experiência!"
+Sentimento:
+
+
+---
+
+• Few-shot
+
+Definição: O modelo recebe alguns exemplos.
+Exemplo:
+
+Frase: "Entrega rápida e produto de qualidade."
+Sentimento: Positivo
+
+Frase: "Não gostei, veio com defeito."
+Sentimento: Negativo
+
+Frase: "Recomendo para todos, nota 10!"
+Sentimento:
+
+
+---
+
+🔹 Rationale Engineering (Engenharia de Racionalizações)
+
+Fornece explicações passo a passo ou justificativas para ajudar o modelo a chegar à resposta correta.
+
+
+---
+
+✅ Chain-of-Thought Prompting (CoT)
+
+Definição: O modelo é guiado a pensar passo a passo.
+Exemplo:
+
+Pergunta: João tem 3 maçãs e compra mais 5. Quantas ele tem agora?
+Vamos pensar passo a passo:
+1. João começou com 3 maçãs.
+2. Ele comprou mais 5.
+3. 3 + 5 = 8.
+Resposta: 8
+
+
+---
+
+✅ Justificativas em múltipla escolha
+
+Exemplo:
+
+Pergunta: Qual planeta é conhecido como o planeta vermelho?
+a) Marte
+b) Vênus
+c) Júpiter
+d) Saturno
+
+Vamos pensar: Marte é chamado de planeta vermelho por causa da presença de óxido de ferro (ferrugem) em sua superfície, que dá a ele uma cor avermelhada.
+
+Resposta: a) Marte
+
+
+---
+
+✅ Explicações em classificação
+
+Exemplo:
+
+Texto: "Não quero mais comprar dessa loja, o produto veio quebrado."
+Classificação: Negativo
+Justificativa: O cliente expressa insatisfação e frustração com a qualidade do produto recebido.
+
+
+---
+
+🔹 Amostragem de Autoconsistência (Self-Consistency Sampling)
+
+Definição: O modelo gera várias cadeias de pensamento. A resposta final é a mais comum entre elas.
+Aplicação: Rodar o mesmo prompt de CoT várias vezes e votar na resposta mais frequente.
+
+
+---
+
+🔹 Decomposição de Problemas (Problem Decomposition)
+
+Definição: Divide um problema complexo em subtarefas menores.
+Exemplo:
+
+Pergunta: Como posso lançar uma campanha de marketing de sucesso para um produto novo?
+Vamos dividir o problema:
+1. Identificar o público-alvo.
+2. Definir os canais de divulgação.
+3. Criar mensagens persuasivas.
+4. Monitorar métricas e ajustar.
+
+
+---
+
+🔹 Raciocínio com Ferramentas Auxiliares (Tool-Augmented Reasoning)
+
+Definição: O modelo usa ferramentas externas como calculadora, busca web, banco de dados.
+Exemplo:
+
+Pergunta: Qual é a cotação atual do dólar?
+[Use ferramenta: API de câmbio]
+Resposta: A cotação atual do dólar é R$ 5,15.
+
+
+---
+
+🔹 Raciocínio com Memória e Contexto (Memory and Contextual Reasoning)
+
+Definição: O modelo usa informações passadas para manter o contexto.
+Exemplo:
+
+Usuário: Meu nome é Ana e gosto de yoga.
+Modelo: Prazer, Ana! Vou lembrar que você gosta de yoga.
+
+[Mais tarde]
+
+Usuário: Me sugira algo para relaxar.
+Modelo: Que tal uma sessão de yoga para relaxamento profundo, Ana?
+
+
+---
+
+🔹 MCP (Model Context Protocol)
+
+Definição: Um protocolo padronizado de como organizar o contexto e instruções.
+Exemplo:
+
+[ROLE]: Você é um especialista em tecnologia.
+[GOAL]: Ajudar o usuário a resolver problemas técnicos.
+[CONTEXT]: O usuário está com problema no login do sistema.
+[INSTRUCTION]: Pergunte se ele já tentou redefinir a senha.
+
+
+---
+
+Se quiser, posso transformar esse conteúdo em um PDF bonitão ou apresentação de slides! Deseja isso também?
+
