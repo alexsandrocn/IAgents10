@@ -25,15 +25,6 @@ Claro! Para redefinir sua senha, siga estes passos:
 4. Verifique sua caixa de entrada e siga o link para criar uma nova senha.
 Se precisar de ajuda, estamos à disposição!
 
-Formato comum (em JSONL):
-
-{
-  "prompt": "### Instrução:\\nVocê é um assistente útil e educado. Responda de forma clara e empática.\\n\\n### Pergunta:\\nComo posso redefinir minha senha em sua plataforma?\\n\\n### Resposta:\\n",
-  "completion": "Claro! Para redefinir sua senha, siga estes passos:\\n1. Acesse a página de login da nossa plataforma..."
-}
-
-
----
 
 🔹 Prompting e In-Context Learning
 
